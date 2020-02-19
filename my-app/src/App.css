@@ -1,0 +1,39 @@
+.app-wrapper {
+  display: grid;
+
+  grid-template-areas: 
+  "h h"
+  "n c";
+
+   /* Количество колонок и строк на странице */
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+    /* растояние между эллементами */
+  grid-gap: 10px;
+}
+
+.header {
+  grid-area: h;    /* Псевдоним */
+  background-color: #3773ff;
+}
+
+.header img {
+  width: 60px;
+}
+
+.nav {
+  grid-area: n;   /* Псевдоним */
+  background-color: #3773ff;
+  padding: 10px;
+}
+
+.content {
+  grid-area: c;   /* Псевдоним */
+  background-color: #ff5e56;
+  padding: 10px;
+}
+
+.content img {
+  width: 1280px;
+  height: 100px;
+}
