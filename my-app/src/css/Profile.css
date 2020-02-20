@@ -1,0 +1,14 @@
+.content {
+    grid-area: c;   /* Псевдоним */
+    background-color: #ff5e56;
+    padding: 10px;
+  }
+  
+  .content img {
+    width: 1280px;
+    height: 100px;
+  }
+
+  .item {
+    color: red;
+  }
