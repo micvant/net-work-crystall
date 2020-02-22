@@ -1,9 +1,0 @@
-.nav {
-    grid-area: n;   /* Псевдоним */
-    background-color: #3773ff;
-    padding: 10px;
-}
-
-.item {
-  color: white;
-}

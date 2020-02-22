@@ -1,0 +1,43 @@
+.post {
+    display: grid;
+    grid-template-areas: 
+    "i p p" 
+    "s btn btn";
+    grid-template-columns: 60px 1fr 60px;
+    grid-template-rows: 1fr 20px;
+    /* grid-gap: 10px; */
+
+    color: white;
+    margin: 15px;
+}
+
+.post .icon {
+    grid-area: i;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.post p {
+    margin-left: 10px;
+    grid-area: p;
+}
+
+.post span {
+    font-family: helvetica neue,Arial,sans-serif;
+}
+
+.post .like {
+    grid-area: s;
+    text-align: center;
+}
+
+.post .btnLike {
+    grid-area: btn;
+    color: black;
+}
+
+.post .likeImg {
+    width: 20px;
+    height: 20px;
+}

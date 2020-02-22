@@ -1,8 +1,0 @@
-.header {
-    grid-area: h;    /* Псевдоним */
-    background-color: #3773ff;
-  }
-  
-  .header img {
-    width: 60px;
-  }
