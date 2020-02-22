@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import NavBar from './components/NavBar/NavBar';
 import Profile from './components/Profile/Profile';
 import Footer from './components/Footer/Footer';
+import Dialogs from './components/Dialogs/Dialogs';
 
 // Компонента возвращает разметку!
 const App = () => {
@@ -11,7 +12,10 @@ const App = () => {
     <div className="app-wrapper">
       <Header/>
       <NavBar/>
-      <Profile/>
+      <div className="app-wrapper-content">
+        <Profile/>
+        {/* <Dialogs/> */}
+      </div>
       <Footer/>
     </div>
   );

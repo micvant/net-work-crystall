@@ -12,3 +12,9 @@
     /* растояние между эллементами */
   grid-gap: 10px;
 }
+
+.app-wrapper-content {
+  grid-area: c;   /* Псевдоним */
+  background-color: #ff5e56;
+  padding: 10px;
+}
