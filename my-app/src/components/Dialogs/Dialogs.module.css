@@ -1,0 +1,14 @@
+.dialogs{
+    display: grid;
+    grid-template-areas: "d m";
+    grid-template-columns: 2fr 10fr;
+    color: #162D28;
+}
+
+.dialog {
+    grid-area: d;
+}
+
+.message {
+    grid-area: m;
+}

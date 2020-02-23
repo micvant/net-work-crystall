@@ -15,6 +15,6 @@
 
 .app-wrapper-content {
   grid-area: c;   /* Псевдоним */
-  background-color: #AC92FF;
+  background-color: #FDF7AA;
   padding: 10px;
 }
