@@ -4,11 +4,9 @@ import s from './Messages.module.css';
 const Messages = (props) => {
     return (
         <div>
-            <div>
-                <p>
-                    {props.message}
-                </p>
-            </div>
+            <p>
+                {props.message}
+            </p>
         </div>
     );
 };
