@@ -1,11 +1,12 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
+import HeaderImg from './../../../img/background_user.jpg'
 
 const ProfileInfo = () => {
   return (
     <div>
       <div>
-        <img src="https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252__340.jpg" alt=""></img>
+        <img src={HeaderImg} alt="Header img"></img>
       </div>
       <div>
         ava + descriptions

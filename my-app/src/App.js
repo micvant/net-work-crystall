@@ -12,14 +12,13 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 // Компонента возвращает разметку!
 const App = (props) => { 
-
   return (
     <BrowserRouter >
       <div className="app-wrapper">
         <Header />
         <NavBar />
         <div className="app-wrapper-content">
-          <Route path='/Profile' render={() => <Profile PostsElements={props.state.DataPost}/>} />  
+          <Route path='/Profile' render={() => <Profile PostsElements={props.state.BranchMyPosts}/>} />  
           <Route path='/Dialogs' render={() => <Dialogs PropsDialogs={props.state.BranchDialogs}/>} /> 
           <Route path='/News' component={News} />
           <Route path='/Music' component={Music} />

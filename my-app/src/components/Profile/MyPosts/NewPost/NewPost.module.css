@@ -1,9 +1,8 @@
-.chatInput {
+.sendMessageForm {
     border: solid 1px #d3d9de;
     border-radius: 6px;
     cursor: text;
-}
-
-.textBox {
+    text-decoration: none;
     background: white;
 }
+
