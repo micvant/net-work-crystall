@@ -5,9 +5,9 @@ let State = {};
 
 State.BranchDialogs = {
    DataFriends: [
-    { id: 1, name: 'Anton' },
-    { id: 2, name: 'Vlad' },
-    { id: 3, name: 'Ilia' }
+    { id: 1, name: 'Anton', avatar: avatar1},
+    { id: 2, name: 'Vlad', avatar: avatar2},
+    { id: 3, name: 'Ilia', avatar: '' }
   ],
    DataMessage: [
     {message: 'Hello! How are you?'},
@@ -18,9 +18,16 @@ State.BranchDialogs = {
 
 State.BranchMyPosts = {
    Posts: [
-    {message: 'Hello world!', like: 5, avatar: avatar1},
-    {message: 'Hi', like: 3, avatar: avatar2}
+    {id: 1, message: 'Hello world!', like: 5, avatar: avatar1},
+    {id: 2, message: 'Hi', like: 3, avatar: avatar2}
   ]
+};
+
+export let addPost = (newMessage) => {
+  let Posts = State.BranchMyPosts.Posts; 
+  let countId = Posts.length + 1;
+  let newPOst = {id: countId, message: newMessage, avatar: '', like: 0};
+  Posts.push(newPOst);
 };
 
   export default State;
