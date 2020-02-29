@@ -1,5 +1,6 @@
 import avatar1 from './../components/Profile/MyPosts/Post/PostImg/avatar1.jpg';
 import avatar2 from './../components/Profile/MyPosts/Post/PostImg/avatar2.jpg';
+import { Render } from '../render';
 
 let State = {};
 
@@ -28,6 +29,7 @@ export let addPost = (newMessage) => {
   let countId = Posts.length + 1;
   let newPOst = {id: countId, message: newMessage, avatar: '', like: 0};
   Posts.push(newPOst);
+  Render(State);    
 };
 
-  export default State;
+export default State;
