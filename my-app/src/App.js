@@ -18,11 +18,26 @@ const App = (props) => {
         <Header />
         <NavBar />
         <div className="app-wrapper-content">
-          <Route path='/Profile' render={() => <Profile PostsElements={props.state.BranchMyPosts} Render={props.Render} addPost={props.addPost}/>} />  
-          <Route path='/Dialogs' render={() => <Dialogs PropsDialogs={props.state.BranchDialogs}/>} /> 
-          <Route path='/News' component={News} />
-          <Route path='/Music' component={Music} />
-          <Route path='/Settings' component={Settings} />
+          <Route path='/Profile' 
+          render={() => <Profile
+              PostsElements={props.state.PageProfile} 
+              Render={props.Render}
+              addPost={props.addPost}
+              updateTextPost={props.updateTextPost}
+              newPostText={props.state.PageProfile.newPostText}/>} />  
+          <Route
+            path='/Dialogs'
+            render={() => <Dialogs
+            PropsDialogs={props.state.PageDialogs}/>} /> 
+          <Route
+            path='/News'
+            component={News} />
+          <Route
+            path='/Music'
+            component={Music} />
+          <Route 
+            path='/Settings'
+            component={Settings} />
         </div>
         <Footer />
       </div>

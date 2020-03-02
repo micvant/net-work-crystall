@@ -7,9 +7,9 @@ const NewPost = (props) => {
         <form>
             <input
                 className={s.sendMessageForm}
-                onChange={props.handleChange}
+                onChange={props.addText}
                 ref={props.refInput}
-                value={props.state}
+                value={props.newPostText}
                 placeholder="Type your message and hit ENTER"
                 type="text" />
         </form>
