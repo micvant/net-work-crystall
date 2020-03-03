@@ -9,9 +9,20 @@ const MyPosts = (props) => {
     let Elements = props.PostsElements.map(el => <Post message={el.message} like={el.like} avatar={el.avatar} />)
 
     let newPostElement = React.createRef();
+    
     let addText = () => {
         let Text = newPostElement.current.value;
-        props.updateTextPost(Text);
+        let action = {
+            type: 'UPDATE-TEXT-POST',
+            newText: Text
+        }
+        props.dispatch(action);
+    };
+    let addPost = () => {
+        let action = {
+            type: 'ADD-POST'
+        };  
+        props.dispatch(action);
     };
 
     return (
@@ -20,10 +31,9 @@ const MyPosts = (props) => {
             <div>
                 <NewPost
                     refInput={newPostElement}
-                    updateTextPost={props.updateTextPost}
                     addText={addText}
                     newPostText={props.newPostText} />
-                <button onClick={props.addPost}>New post</button>
+                <button onClick={addPost}>New post</button>
             </div>
             <div>
                 {Elements}

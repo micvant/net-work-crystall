@@ -1,21 +1,23 @@
 import * as serviceWorker from './serviceWorker';
-import State from './Redax/Redax';
+import store from './Redax/Redax';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {addPost, updateTextPost, Subcribe} from './Redax/Redax';
+import {BrowserRouter} from 'react-router-dom';
 
 export let Render = () => {
-    ReactDOM.render(<App 
-    state={State}
+
+    ReactDOM.render(<BrowserRouter >
+    <App 
+    state={store.getState()}
     Render={Render}
-    addPost={addPost}
-    updateTextPost={updateTextPost}/>,
+    dispatch={store.dispatch.bind(store)}/>
+    </BrowserRouter>,
     document.getElementById('root'));
 };
 
-Render(Render);
+store.subcribe(Render);
 
 
 serviceWorker.unregister();

@@ -4,7 +4,7 @@ import Messages from './Messages/Messages';
 import Dialog from './Dialog/Dialog';
 
 
-const Dialogs = (props) => {   
+const Dialogs = (props) => { 
     let MessagesElements = props.PropsDialogs.DataMessage.map(el=> <Messages message={el.message}/>);
     let DialogsElements = props.PropsDialogs.DataFriends.map(el=> <Dialog name={el.name} id={el.id}/>);
     

@@ -8,12 +8,11 @@ import Dialogs from './components/Dialogs/Dialogs';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import { BrowserRouter, Route } from 'react-router-dom';
+import {Route } from 'react-router-dom';
 
 // Компонента возвращает разметку!
 const App = (props) => { 
   return (
-    <BrowserRouter >
       <div className="app-wrapper">
         <Header />
         <NavBar />
@@ -22,8 +21,7 @@ const App = (props) => {
           render={() => <Profile
               PostsElements={props.state.PageProfile} 
               Render={props.Render}
-              addPost={props.addPost}
-              updateTextPost={props.updateTextPost}
+              dispatch={props.dispatch}
               newPostText={props.state.PageProfile.newPostText}/>} />  
           <Route
             path='/Dialogs'
@@ -41,7 +39,6 @@ const App = (props) => {
         </div>
         <Footer />
       </div>
-    </BrowserRouter >
   );
 }
 
