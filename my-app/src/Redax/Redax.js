@@ -1,6 +1,9 @@
 import avatar1 from './../components/Profile/MyPosts/Post/PostImg/avatar1.jpg';
 import avatar2 from './../components/Profile/MyPosts/Post/PostImg/avatar2.jpg';
 
+const ADD_POST = 'ADD-POST';
+const UPDATE_TEXT_POST = 'UPDATE-TEXT-POST';
+
 let store = {
 
   _state: {
@@ -77,20 +80,28 @@ let store = {
   },
 
   _updateTextPost(newText) {
+    debugger;
     this._state.PageProfile.newPostText = newText;
     this._render();
   },
 
   dispatch(action) {
+    debugger;
     switch (action.type){
-      case 'ADD-POST': 
+      case ADD_POST: 
         this._addPost();
         break;
-      case 'UPDATE-TEXT-POST':
-        this._updateTextPost(action.newText);
+      case UPDATE_TEXT_POST:
+        this._updateTextPost(action.message);
         break;
       }
     }
 };
+
+export const addPostActionCreator = () => ({type: ADD_POST});
+export const updateTextPostActionCreator = (text) => {
+ debugger;
+  return {type: UPDATE_TEXT_POST, message: text}
+  };
 
 export default store;

@@ -2,7 +2,7 @@ import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 import NewPost from './NewPost/NewPost';
-
+import {updateTextPostActionCreator, addPostActionCreator} from '../../../Redax/Redax'
 
 const MyPosts = (props) => {
 
@@ -12,17 +12,10 @@ const MyPosts = (props) => {
     
     let addText = () => {
         let Text = newPostElement.current.value;
-        let action = {
-            type: 'UPDATE-TEXT-POST',
-            newText: Text
-        }
-        props.dispatch(action);
+        props.dispatch(updateTextPostActionCreator(Text));
     };
     let addPost = () => {
-        let action = {
-            type: 'ADD-POST'
-        };  
-        props.dispatch(action);
+        props.dispatch(addPostActionCreator());
     };
 
     return (

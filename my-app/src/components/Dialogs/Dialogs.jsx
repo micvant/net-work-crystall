@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import Messages from './Messages/Messages';
 import Dialog from './Dialog/Dialog';
+import {updateTextPostActionCreator} from '../../Redax/Redax'
 
 
 const Dialogs = (props) => { 
@@ -9,10 +10,11 @@ const Dialogs = (props) => {
     let DialogsElements = props.PropsDialogs.DataFriends.map(el=> <Dialog name={el.name} id={el.id}/>);
     
     let newMessageElement = React.createRef();
-    
+
     let addMessage = () => {
+        debugger;
         let textMessage = newMessageElement.current.value;
-        alert(textMessage);
+        props.dispatch(updateTextPostActionCreator(textMessage));
     };
     return (
         <div className={s.dialogs}>
