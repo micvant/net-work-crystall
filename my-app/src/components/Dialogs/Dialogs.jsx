@@ -12,7 +12,6 @@ const Dialogs = (props) => {
     let newMessageElement = React.createRef();
 
     let addMessage = () => {
-        debugger;
         let textMessage = newMessageElement.current.value;
         props.dispatch(updateTextPostActionCreator(textMessage));
     };

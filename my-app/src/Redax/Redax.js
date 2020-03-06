@@ -80,13 +80,11 @@ let store = {
   },
 
   _updateTextPost(newText) {
-    debugger;
     this._state.PageProfile.newPostText = newText;
     this._render();
   },
 
   dispatch(action) {
-    debugger;
     switch (action.type){
       case ADD_POST: 
         this._addPost();
@@ -99,9 +97,6 @@ let store = {
 };
 
 export const addPostActionCreator = () => ({type: ADD_POST});
-export const updateTextPostActionCreator = (text) => {
- debugger;
-  return {type: UPDATE_TEXT_POST, message: text}
-  };
+export const updateTextPostActionCreator = (text) => ({type: UPDATE_TEXT_POST, message: text});
 
 export default store;
