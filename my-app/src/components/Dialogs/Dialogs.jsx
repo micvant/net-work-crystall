@@ -2,17 +2,19 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import Messages from './Messages/Messages';
 import Dialog from './Dialog/Dialog';
-import {updateTextMessageActionCreate, getPropsDialogs, getMessage} from '../../Redax/Redax'
+import {updateTextMessageActionCreate, getPropsDialogs, getMessage, pushMessage} from '../../Redax/Redax'
 
 const Dialogs = (props) => { 
-    debugger;
-    let MessagesElements = props.dispatch(getPropsDialogs()).DataMessage.map(el=> <Messages message={el.message}/>);
-    let DialogsElements = props.dispatch(getPropsDialogs()).DataFriends.map(el=> <Dialog name={el.name} id={el.id}/>);
-    let newMessageElement = React.createRef();
+    let propsDialogs = props.dispatch(getPropsDialogs());
+    let MessagesElements = propsDialogs.DataMessage.map(el=> <Messages message={el.message}/>);
+    let DialogsElements = propsDialogs.DataFriends.map(el=> <Dialog name={el.name} id={el.id}/>);
 
-    let addMessage = () => {
-        let newMessage = newMessageElement.current.value;
-        props.dispatch(updateTextMessageActionCreate(newMessage));
+    let addMessage = (e) => {
+        props.dispatch(updateTextMessageActionCreate());
+    };
+    let updateMessage = (e) => {
+        let body = e.target.value;
+        props.dispatch(pushMessage(body));
     };
     return (
         <div className={s.dialogs}>
@@ -21,8 +23,13 @@ const Dialogs = (props) => {
             </div>
             <div className={s.message}>
                 {MessagesElements}
-                <textarea ref={newMessageElement}>{props.dispatch(getMessage())}</textarea>
-                <button onClick={addMessage.bind(props.store)}>Send message</button>
+                <textarea 
+                    onChange={updateMessage}
+                    value={props.dispatch(getMessage())}>     
+                </textarea>
+                <button onClick={addMessage}>
+                    Send message
+                </button>
             </div>
         </div>
     );

@@ -9,6 +9,7 @@ const GET_TEXT_POST = 'GET_TEXT_POST';
 const GET_POSTS = 'GET_POSTS';
 const GET_DIALOGS = 'GET_DIALOGS';
 const GET_MESSAGE = 'GET_MESSAGE';
+const PUSH_MESSAGE = 'PUSH_MESSAGE';
 const USER = 'USER';
 
 let store = {
@@ -92,19 +93,14 @@ let store = {
     this._render();
   },
 
-  _addDialog() {
-    let Dialogs = this._state.PageDialogs.DataFriends;
-    let countID = Dialogs.length + 1;
-    let newDialog = {
+  _updateMessageDialog(textMessage) {
+    let Messages = this._state.PageDialogs.DataMessage;
+    let countID = Messages.length + 1;
+    let newMessage = {
       id: countID,
-      name:  'Unknown',
-      avatar: ''
+      message:  textMessage,
     };
-    Dialogs.push(newDialog);
-    this._render();
-  },
-  _updateMessageDialog(newMessage) {
-    this._state.PageDialogs.newMessage = newMessage;
+    Messages.push(newMessage);
     this._render();
   },
 
@@ -117,10 +113,8 @@ let store = {
         this._updateTextPost(action.message);
         break;
       case UPDATE_TEXT_MESSAGE:
-        this._updateMessageDialog(action.message);
+        this._updateMessageDialog(this._state.PageDialogs.newMessage);
         break;
-      case ADD_DIALOGS:
-        this._addDialog();
       case GET_TEXT_POST:
         return this._state.PageProfile.newPostText;
       case GET_POSTS:
@@ -129,18 +123,21 @@ let store = {
         return this._state.PageDialogs;
       case GET_MESSAGE:
         return this._state.PageDialogs.newMessage;
+      case PUSH_MESSAGE:
+        this._state.PageDialogs.newMessage = action.message;
+        this._render();
       };
     }
 };
 
 export const addPostActionCreate = () => ({type: ADD_POST});
 export const updateTextPostActionCreate = (text) => ({type: UPDATE_TEXT_POST, message: text});
-export const addDialogActionCreate = (user) => ({type: ADD_DIALOGS, name: user.name, avatar: user.avatar});
-export const updateTextMessageActionCreate = (newMessage) => ({type: UPDATE_TEXT_MESSAGE, message: newMessage});
+export const updateTextMessageActionCreate = () => ({type: UPDATE_TEXT_MESSAGE});
 export const createUser = () => ({type: USER, name: '', avatar: ''});
 export const addTextPostActionCreate = () => ({type: GET_TEXT_POST});
 export const createPosts = () => ({type: GET_POSTS});
 export const getPropsDialogs = () => ({type: GET_DIALOGS});
-export const getMessage = () => ({type: GET_MESSAGE})
+export const getMessage = () => ({type: GET_MESSAGE});
+export const pushMessage = (body) => ({type: PUSH_MESSAGE, message: body});
 
 export default store;
