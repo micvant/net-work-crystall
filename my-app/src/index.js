@@ -7,7 +7,6 @@ import App from './App';
 import {BrowserRouter} from 'react-router-dom';
 
 export let Render = () => {
-
     ReactDOM.render(<BrowserRouter >
     <App 
     state={store.getState()}
@@ -18,6 +17,5 @@ export let Render = () => {
 };
 
 store.subcribe(Render);
-
 
 serviceWorker.unregister();

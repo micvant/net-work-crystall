@@ -17,17 +17,16 @@ const App = (props) => {
         <Header />
         <NavBar />
         <div className="app-wrapper-content">
-          <Route path='/Profile' 
-          render={() => <Profile
-              PostsElements={props.state.PageProfile} 
-              Render={props.Render}
-              dispatch={props.dispatch}
-              newPostText={props.state.PageProfile.newPostText}/>} />  
+          <Route
+            path='/Profile' 
+            render={() => 
+              <Profile
+                dispatch={props.dispatch}/>} />  
           <Route
             path='/Dialogs'
-            render={() => <Dialogs
-            PropsDialogs={props.state.PageDialogs}
-            dispatch={props.dispatch}/>} /> 
+            render={() => 
+              <Dialogs
+                dispatch={props.dispatch}/>} /> 
           <Route
             path='/News'
             component={News} />

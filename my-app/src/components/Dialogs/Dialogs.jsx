@@ -2,18 +2,17 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import Messages from './Messages/Messages';
 import Dialog from './Dialog/Dialog';
-import {updateTextPostActionCreator} from '../../Redax/Redax'
-
+import {updateTextMessageActionCreate, getPropsDialogs, getMessage} from '../../Redax/Redax'
 
 const Dialogs = (props) => { 
-    let MessagesElements = props.PropsDialogs.DataMessage.map(el=> <Messages message={el.message}/>);
-    let DialogsElements = props.PropsDialogs.DataFriends.map(el=> <Dialog name={el.name} id={el.id}/>);
-    
+    debugger;
+    let MessagesElements = props.dispatch(getPropsDialogs()).DataMessage.map(el=> <Messages message={el.message}/>);
+    let DialogsElements = props.dispatch(getPropsDialogs()).DataFriends.map(el=> <Dialog name={el.name} id={el.id}/>);
     let newMessageElement = React.createRef();
 
     let addMessage = () => {
-        let textMessage = newMessageElement.current.value;
-        props.dispatch(updateTextPostActionCreator(textMessage));
+        let newMessage = newMessageElement.current.value;
+        props.dispatch(updateTextMessageActionCreate(newMessage));
     };
     return (
         <div className={s.dialogs}>
@@ -22,8 +21,8 @@ const Dialogs = (props) => {
             </div>
             <div className={s.message}>
                 {MessagesElements}
-                <textarea ref={newMessageElement}></textarea>
-                <button onClick={addMessage}>Send message</button>
+                <textarea ref={newMessageElement}>{props.dispatch(getMessage())}</textarea>
+                <button onClick={addMessage.bind(props.store)}>Send message</button>
             </div>
         </div>
     );

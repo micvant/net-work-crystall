@@ -2,20 +2,19 @@ import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 import NewPost from './NewPost/NewPost';
-import {updateTextPostActionCreator, addPostActionCreator} from '../../../Redax/Redax'
+import {updateTextPostActionCreate, addPostActionCreate, addTextPostActionCreate, createPosts} from '../../../Redax/Redax'
 
 const MyPosts = (props) => {
-
-    let Elements = props.PostsElements.map(el => <Post message={el.message} like={el.like} avatar={el.avatar} />)
-
+    
+    let Elements = props.dispatch(createPosts()).map(el => <Post message={el.message} like={el.like} avatar={el.avatar} />)
     let newPostElement = React.createRef();
     
     let addText = () => {
         let Text = newPostElement.current.value;
-        props.dispatch(updateTextPostActionCreator(Text));
+        props.dispatch(updateTextPostActionCreate(Text));
     };
     let addPost = () => {
-        props.dispatch(addPostActionCreator());
+        props.dispatch(addPostActionCreate());
     };
 
     return (
@@ -25,7 +24,7 @@ const MyPosts = (props) => {
                 <NewPost
                     refInput={newPostElement}
                     addText={addText}
-                    newPostText={props.newPostText} />
+                    newPostText={props.dispatch(addTextPostActionCreate())} />
                 <button onClick={addPost}>New post</button>
             </div>
             <div>
