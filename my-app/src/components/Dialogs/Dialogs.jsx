@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import Messages from './Messages/Messages';
 import Dialog from './Dialog/Dialog';
-import {updateTextMessageActionCreate, getPropsDialogs, getMessage, pushMessage} from '../../Redax/Redax'
+import {updateTextMessageActionCreate, getPropsDialogs, getMessage, pushMessage} from '../../Redax/reducerDialogs'
 
 const Dialogs = (props) => { 
     let propsDialogs = props.dispatch(getPropsDialogs());
